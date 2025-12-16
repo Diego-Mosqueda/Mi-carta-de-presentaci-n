@@ -1,3 +1,7 @@
+/* ===============================================
+   ESTILOS GLOBALES
+   =============================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +15,62 @@ body {
     overflow-x: hidden;
 }
 
-/* Navbar Profesional */
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes path {
+    0%, 34%, 71%, 100% {
+        transform: scale(1);
+    }
+    17% {
+        transform: scale(var(--scale_path_1, 1));
+    }
+    49% {
+        transform: scale(var(--scale_path_2, 1));
+    }
+    83% {
+        transform: scale(var(--scale_path_3, 1));
+    }
+}
+
+@keyframes gradientSlide {
+    0% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
+}
+
+/* ===============================================
+   NAVBAR - Barra de Navegación
+   =============================================== */
+
 .navbar {
     background: linear-gradient(90deg, #0f3460 0%, #16213e 50%, #533483 100%) !important;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -39,7 +98,8 @@ body {
 }
 
 .nav-link:hover {
-    color: #00d4ff !important;
+    color: #ffd700 !important;
+    transform: translateY(-2px);
 }
 
 .nav-link::after {
@@ -59,21 +119,19 @@ body {
     width: 100%;
 }
 
-.nav-link:hover {
-    color: #ffd700 !important;
-    transform: translateY(-2px);
-}
-  
-  /* Hero Section */
-  .hero-section {
+/* ===============================================
+   HERO SECTION - Sección Héroe
+   =============================================== */
+
+.hero-section {
     padding: 80px 0;
     min-height: 100vh;
     background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #ff6b35 100%);
     position: relative;
     overflow: hidden;
-  }
+}
 
-  .hero-section::before {
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -81,12 +139,12 @@ body {
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
     pointer-events: none;
-  }
+}
 
-  .left-section {
+.left-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -94,32 +152,32 @@ body {
     background-color: transparent;
     position: relative;
     z-index: 1;
-  }
+}
 
-  .left-section h1 {
+.left-section h1 {
     font-size: 3.5rem;
     font-weight: 800;
     color: #fff;
     margin-bottom: 20px;
     line-height: 1.1;
-  }
+}
 
-  .hero-subtitle {
+.hero-subtitle {
     font-size: 1.4rem;
     color: #00d4ff;
     font-weight: 600;
     margin-bottom: 15px;
-  }
+}
 
-  .bio-text {
+.bio-text {
     font-size: 1.15rem;
     color: #e0e0e0;
     margin-bottom: 30px;
     text-align: justify;
     line-height: 1.7;
-  }
+}
 
-  .right-section {
+.right-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,10 +186,10 @@ body {
     padding: 40px;
     position: relative;
     z-index: 1;
-  }
+}
 
-  /* Image Container */
-  .image-container {
+/* Contenedor de Imagen */
+.image-container {
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
@@ -139,9 +197,9 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     animation: slideIn 1s ease-out;
     position: relative;
-  }
+}
 
-  .image-container::before {
+.image-container::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -152,27 +210,27 @@ body {
     border-radius: 22px;
     z-index: -1;
     opacity: 0.8;
-  }
+}
 
-  .hero-image {
+.hero-image {
     width: 100%;
     height: auto;
     object-fit: cover;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+}
 
-  .image-container:hover .hero-image {
+.image-container:hover .hero-image {
     transform: scale(1.05) rotate(2deg);
-  }
-  
-  /* Hero Buttons */
-  .hero-buttons {
+}
+
+/* Botones del Hero */
+.hero-buttons {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-  }
+}
 
-  .hero-buttons .btn {
+.hero-buttons .btn {
     padding: 14px 32px;
     border-radius: 12px;
     font-weight: 600;
@@ -181,9 +239,9 @@ body {
     position: relative;
     overflow: hidden;
     border: none;
-  }
+}
 
-  .hero-buttons .btn::before {
+.hero-buttons .btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -192,39 +250,39 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s;
-  }
+}
 
-  .hero-buttons .btn:hover::before {
+.hero-buttons .btn:hover::before {
     left: 100%;
-  }
+}
 
-  .hero-buttons .btn-primary {
+.hero-buttons .btn-primary {
     background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
     color: white;
     box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-  }
+}
 
-  .hero-buttons .btn-primary:hover {
+.hero-buttons .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-  }
+}
 
-  .hero-buttons .btn-outline-light {
+.hero-buttons .btn-outline-light {
     background: transparent;
     color: #1e3a8a;
     border: 2px solid #3b82f6;
-  }
+}
 
-  .hero-buttons .btn-outline-light:hover {
+.hero-buttons .btn-outline-light:hover {
     background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
     color: white;
     transform: translateY(-3px);
     box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
-  }
+}
 
-  /* Botón Contáctame */
-  .btn-contactame {
+/* Botón Contáctame */
+.btn-contactame {
     background: linear-gradient(135deg, #ff6b35 0%, #ff5c00 100%);
     color: white;
     border: none;
@@ -239,43 +297,43 @@ body {
     display: inline-block;
     position: relative;
     overflow: hidden;
-  }
+}
 
-  .btn-contactame::before {
+.btn-contactame::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(247, 245, 245, 0.3), transparent);
     transition: left 0.5s;
-  }
+}
 
-  .btn-contactame:hover::before {
+.btn-contactame:hover::before {
     left: 100%;
-  }
+}
 
-  .btn-contactame:hover {
+.btn-contactame:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 35px rgba(255, 107, 53, 0.7);
     background: linear-gradient(135deg, #ff5c00 0%, #ff6b35 100%);
-  }
+}
 
-  .btn-contactame:active {
+.btn-contactame:active {
     transform: translateY(-1px) scale(1.02);
-  }
-  
-  /* Social Cards Container */
-  .social-cards-container {
+}
+
+/* Tarjetas Sociales */
+.social-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 100%;
     max-width: 500px;
-  }
-  
-  .social-card {
+}
+
+.social-card {
     position: relative;
     overflow: hidden;
     border-radius: 15px;
@@ -288,14 +346,14 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .social-card:hover {
+}
+
+.social-card:hover {
     transform: translateY(-15px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  }
-  
-  .social-card-bg {
+}
+
+.social-card-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -305,13 +363,13 @@ body {
     background-size: cover;
     background-position: center;
     transition: all 0.3s ease;
-  }
-  
-  .social-card:hover .social-card-bg {
+}
+
+.social-card:hover .social-card-bg {
     transform: scale(1.1);
-  }
-  
-  .social-card-content {
+}
+
+.social-card-content {
     position: relative;
     z-index: 1;
     display: flex;
@@ -319,42 +377,41 @@ body {
     align-items: center;
     gap: 10px;
     text-align: center;
-  }
-  
-  .social-card h3 {
+}
+
+.social-card h3 {
     font-size: 16px;
     font-weight: 600;
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .social-card svg {
+}
+
+.social-card svg {
     transition: transform 0.3s ease;
-  }
-  
-  .social-card:hover svg {
+}
+
+.social-card:hover svg {
     transform: scale(1.15);
-  }
-  
-  /* Social Card Gradients */
-  .whatsapp-card .social-card-bg {
+}
+
+/* Gradientes de Tarjetas Sociales */
+.whatsapp-card .social-card-bg {
     background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-  }
-  
-  .instagram-card .social-card-bg {
+}
+
+.instagram-card .social-card-bg {
     background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d92e7f 50%, #9b36b7 75%, #515bd4 100%);
-  }
-  
-  .linkedin-card .social-card-bg {
+}
+
+.linkedin-card .social-card-bg {
     background: linear-gradient(135deg, #0a66c2 0%, #005e96 100%);
-  }
-  
-  /* Button Styles */
-  .button {
+}
+
+/* Botón con Animación */
+.button {
     --black-700: hsla(0 0% 12% / 1);
     --border_radius: 9999px;
     --transtion: 0.3s ease-in-out;
-  
     cursor: pointer;
     position: relative;
     display: flex;
@@ -367,9 +424,9 @@ body {
     border-radius: var(--border_radius);
     transform: scale(calc(1 + (var(--active, 0) * 0.1)));
     transition: transform var(--transtion);
-  }
-  
-  .button::before {
+}
+
+.button::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -380,13 +437,13 @@ body {
     background-color: var(--black-700);
     border-radius: var(--border_radius);
     box-shadow: inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%),
-      0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
-      0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
+        0px 4px 10px -4px hsla(0 0% 0% / calc(1 - var(--active, 0))),
+        0 0 0 calc(var(--active, 0) * 0.375rem) hsl(260 97% 50% / 0.75);
     transition: all var(--transtion);
     z-index: 0;
-  }
-  
-  .button::after {
+}
+
+.button::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -396,24 +453,24 @@ body {
     height: 100%;
     background-color: hsla(260 97% 61% / 0.75);
     background-image: radial-gradient(at 51% 89%, hsla(266, 45%, 74%, 1) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
-      radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
+        radial-gradient(at 100% 100%, hsla(266, 36%, 60%, 1) 0px, transparent 50%),
+        radial-gradient(at 22% 91%, hsla(266, 36%, 60%, 1) 0px, transparent 50%);
     background-position: top;
     opacity: var(--active, 0);
     border-radius: var(--border_radius);
     transition: opacity var(--transtion);
     z-index: 2;
-  }
-  
-  .button:is(:hover, :focus-visible) {
+}
+
+.button:is(:hover, :focus-visible) {
     --active: 1;
-  }
-  
-  .button:active {
+}
+
+.button:active {
     transform: scale(1);
-  }
-  
-  .button .dots_border {
+}
+
+.button .dots_border {
     --size_border: calc(100% + 2px);
     overflow: hidden;
     position: absolute;
@@ -425,9 +482,9 @@ body {
     background-color: transparent;
     border-radius: var(--border_radius);
     z-index: -10;
-  }
-  
-  .button .dots_border::before {
+}
+
+.button .dots_border::before {
     content: "";
     position: absolute;
     top: 30%;
@@ -440,75 +497,57 @@ body {
     background-color: white;
     mask: linear-gradient(transparent 0%, white 120%);
     animation: rotate 2s linear infinite;
-  }
-  
-  @keyframes rotate {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .button .sparkle {
+}
+
+.button .sparkle {
     position: relative;
     z-index: 10;
     width: 1.75rem;
-  }
-  
-  .button .sparkle .path {
+}
+
+.button .sparkle .path {
     fill: currentColor;
     stroke: currentColor;
     transform-origin: center;
     color: hsl(0, 0%, 100%);
-  }
-  
-  .button:is(:hover, :focus) .sparkle .path {
+}
+
+.button:is(:hover, :focus) .sparkle .path {
     animation: path 1.5s linear 0.5s infinite;
-  }
-  
-  .button .sparkle .path:nth-child(1) {
+}
+
+.button .sparkle .path:nth-child(1) {
     --scale_path_1: 1.2;
-  }
-  
-  .button .sparkle .path:nth-child(2) {
+}
+
+.button .sparkle .path:nth-child(2) {
     --scale_path_2: 1.2;
-  }
-  
-  .button .sparkle .path:nth-child(3) {
+}
+
+.button .sparkle .path:nth-child(3) {
     --scale_path_3: 1.2;
-  }
-  
-  @keyframes path {
-    0%, 34%, 71%, 100% {
-      transform: scale(1);
-    }
-    17% {
-      transform: scale(var(--scale_path_1, 1));
-    }
-    49% {
-      transform: scale(var(--scale_path_2, 1));
-    }
-    83% {
-      transform: scale(var(--scale_path_3, 1));
-    }
-  }
-  
-  .button .text_button {
+}
+
+.button .text_button {
     position: relative;
     z-index: 10;
     background-image: linear-gradient(90deg, hsla(0 0% 100% / 1) 0%, hsla(0 0% 100% / var(--active, 0)) 120%);
     background-clip: text;
     font-size: 1rem;
     color: transparent;
-  }
-  
-  /* About Section */
-  .about-section {
+}
+
+/* ===============================================
+   ABOUT SECTION - Sección Sobre Mí
+   =============================================== */
+
+.about-section {
     padding: 100px 0;
     background: linear-gradient(135deg, #1a1f36 0%, #2d3561 100%);
     position: relative;
-  }
+}
 
-  .about-section::before {
+.about-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -516,274 +555,169 @@ body {
     right: 0;
     bottom: 0;
     background:
-      radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
     pointer-events: none;
-  }
+}
 
-  .about-section h2 {
+.about-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title-about {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 40px;
-    color: #1e3a8a;
+    margin-bottom: 15px;
+    color: #00d4ff;
     text-align: center;
     position: relative;
-  }
+    letter-spacing: -1px;
+}
 
-  .about-section h2::after {
+.section-title-about::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 100px;
     height: 4px;
-    background: linear-gradient(135deg, #3b82f6, #f59e0b);
+    background: linear-gradient(135deg, #00d4ff, #ff6b35);
     border-radius: 2px;
-  }
+}
 
-  .about-section p {
-    font-size: 1.15rem;
-    color: #4b5563;
+.about-subtitle {
+    font-size: 1.1rem;
+    color: #b0b8d1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-image-wrapper:hover {
+    box-shadow: 0 30px 80px rgba(0, 212, 255, 0.25);
+    transform: translateY(-5px);
+}
+
+.profile-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #00d4ff, #ff6b35, #533483);
+    border-radius: 27px;
+    z-index: -1;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+.profile-image-wrapper:hover::before {
+    opacity: 1;
+}
+
+.img-profile-professional {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    border-radius: 23px;
+}
+
+.profile-image-wrapper:hover .img-profile-professional {
+    transform: scale(1.02);
+}
+
+.profile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(255, 107, 53, 0.05) 100%);
+    border-radius: 23px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image-wrapper:hover .profile-overlay {
+    opacity: 1;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+}
+
+.about-content-centered {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.about-name {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.about-role {
+    font-size: 1.1rem;
+    color: #00d4ff;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.about-text {
+    font-size: 1rem;
+    color: #e0e0e0;
     margin-bottom: 20px;
+    line-height: 1.8;
     text-align: justify;
-    line-height: 1.7;
-  }
+    transition: color 0.3s ease;
+}
 
-  .highlight {
-    color: #3b82f6;
+.about-text:last-of-type {
+    margin-bottom: 30px;
+}
+
+.highlight {
+    color: #00d4ff;
     font-weight: 600;
     position: relative;
-  }
+}
 
-  .highlight::after {
+.highlight::after {
     content: '';
     position: absolute;
     bottom: 2px;
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, #3b82f6, #f59e0b);
+    background: linear-gradient(135deg, #00d4ff, #ff6b35);
     border-radius: 2px;
     opacity: 0.6;
-  }
+}
 
-  /* Skills Container */
-  .skills-container {
-    margin-top: 30px;
-  }
-
-  .skills-container h5 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-
-  .skill-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .skill-badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-  }
-
-  .skill-badge:hover::before {
-    left: 100%;
-  }
-
-  .skill-badge:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-  }
-  
-  /* Certifications Section */
-  .certifications-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-  }
-  
-  .certifications-section h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
-    color: white;
-  }
-  
-  .logos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  
-  .logos img {
-    max-height: 100px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s ease;
-  }
-  
-  .logos img:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 992px) {
-    .hero-section {
-      min-height: auto;
-    }
-  
-    .left-section,
-    .right-section {
-      padding: 30px 20px;
-    }
-  
-    .left-section h1 {
-      font-size: 2.2rem;
-    }
-  
-    .social-cards-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .left-section h1 {
-      font-size: 1.8rem;
-    }
-  
-    .bio-text {
-      font-size: 1rem;
-    }
-  
-    .image-container {
-      max-width: 300px;
-    }
-  
-    .button {
-      padding: 0.8rem 1.5rem;
-    }
-  
-    .button .sparkle {
-      width: 1.5rem;
-    }
-  
-    .button .text_button {
-      font-size: 0.9rem;
-    }
-  
-    .social-cards-container {
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 400px;
-    }
-  
-    .about-section h2,
-    .certifications-section h2 {
-      font-size: 2rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .hero-section .container-fluid {
-      padding: 0;
-    }
-  
-    .left-section,
-    .right-section {
-      padding: 20px 15px;
-    }
-  
-    .left-section h1 {
-      font-size: 1.5rem;
-    }
-  
-    .bio-text {
-      font-size: 0.95rem;
-    }
-  
-    .image-container {
-      max-width: 250px;
-    }
-  
-    .button {
-      padding: 0.7rem 1.2rem;
-    }
-  
-    .button .sparkle {
-      width: 1.3rem;
-    }
-  
-    .button .text_button {
-      font-size: 0.85rem;
-    }
-  
-    .social-cards-container {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      max-width: 300px;
-    }
-  
-    .social-card h3 {
-      font-size: 14px;
-    }
-  
-    .social-card svg {
-      width: 36px;
-      height: 36px;
-    }
-  
-    .about-section h2,
-    .certifications-section h2 {
-      font-size: 1.5rem;
-    }
-  
-    .about-section p {
-      font-size: 0.95rem;
-    }
-  
-    .logos img {
-      max-height: 80px;
-    }
-  }
-  
-  /* Scroll behavior */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* Links */
-  a {
-    transition: all 0.3s ease;
-  }
-  /* Sobre Mí - Foto de perfil cuadrada */
+/* Foto de Perfil (antigua - mantenida para compatibilidad) */
 .img-profile-square {
     width: 100%;
     max-width: 350px;
@@ -798,166 +732,65 @@ body {
     transform: scale(1.05);
 }
 
-/* Certificaciones Section */
-.certifications-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Contenedor de Habilidades */
+.skills-container {
+    margin-top: 30px;
+}
+
+.skills-container h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00d4ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.skill-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
     color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
     position: relative;
     overflow: hidden;
 }
 
-.certifications-section::before {
-    content: "";
+.skill-badge::before {
+    content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.certifications-section h2 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.subtitle-cert {
-    font-size: 1.1rem;
-    opacity: 0.9;
-    margin-bottom: 40px;
-}
-
-/* Tarjetas de Certificaciones */
-.cert-card {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    padding: 30px 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
+    left: -100%;
+    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 280px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
-.cert-card:hover {
-    transform: translateY(-15px) rotateZ(2deg);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 1);
+.skill-badge:hover::before {
+    left: 100%;
 }
 
-.cert-card h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #333;
-    margin: 15px 0 10px 0;
+.skill-badge:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
-.cert-card p {
-    color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-}
+/* ===============================================
+   CERTIFICATIONS SECTION - Sección de Certificaciones
+   =============================================== */
 
-/* Iconos de certificaciones */
-.cert-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-}
-
-.cert-card:hover .cert-icon {
-    transform: scale(1.1) rotate(10deg);
-}
-
-.cert-icon svg {
-    width: 45px;
-    height: 45px;
-    fill: currentColor;
-}
-
-.python-icon {
-    background: linear-gradient(135deg, #3776ab 0%, #ffd43b 100%);
-}
-
-.java-icon {
-    background: linear-gradient(135deg, #007396 0%, #f89820 100%);
-}
-
-.cpp-icon {
-    background: linear-gradient(135deg, #00599c 0%, #004482 100%);
-}
-
-.db-icon {
-    background: linear-gradient(135deg, #336791 0%, #000000 100%);
-}
-
-.network-icon {
-    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-}
-
-/* Badge de certificación */
-.cert-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .img-profile-square {
-        max-width: 280px;
-        margin: 20px auto;
-    }
-
-    .certifications-section h2 {
-        font-size: 2rem;
-    }
-
-    .cert-card {
-        min-height: 260px;
-        padding: 25px 15px;
-    }
-
-    .cert-icon {
-        width: 70px;
-        height: 70px;
-    }
-
-    .cert-icon svg {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-/* Sección Certificaciones */
 .certifications-section {
     padding: 120px 0;
     background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #ff6b35 100%);
@@ -1086,6 +919,10 @@ body {
     background: linear-gradient(135deg, #1f72b8 0%, #0d47a1 100%);
 }
 
+.cert-icon.csharp {
+    background: linear-gradient(135deg, #239120 0%, #168c2a 100%);
+}
+
 .cert-header h3 {
     font-size: 1.6rem;
     font-weight: 700;
@@ -1119,30 +956,27 @@ body {
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-    .certifications-section {
-        padding: 60px 0;
-    }
-
-    .certifications-section .section-title {
-        font-size: 2rem;
-    }
-
-    .cert-card-pro {
-        padding: 30px 20px;
-    }
-
-    .cert-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
-    }
-
-    .cert-header h3 {
-        font-size: 1.3rem;
-    }
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
+.logos img {
+    max-height: 100px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.logos img:hover {
+    transform: scale(1.1);
+}
+
+/* ===============================================
+   PROJECTS SECTION - Sección de Proyectos
+   =============================================== */
 
 .projects-section {
     padding: 120px 0;
@@ -1308,7 +1142,10 @@ body {
     transform: translateX(5px);
 }
 
-/* Sección Contacto */
+/* ===============================================
+   CONTACT SECTION - Sección de Contacto
+   =============================================== */
+
 .contact-section {
     padding: 80px 0;
     background: #fff;
@@ -1700,7 +1537,150 @@ body {
     transform: translateY(-1px);
 }
 
+/* ===============================================
+   FOOTER SECTION - Sección de Pie de Página
+   =============================================== */
+
+.footer-section {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    color: #f3f4f6;
+    padding: 40px 0;
+    border-top: 3px solid linear-gradient(135deg, #00d4ff, #ff6b35);
+    position: relative;
+}
+
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #f59e0b, #10b981, #3b82f6);
+    background-size: 300% 100%;
+    animation: gradientSlide 3s ease infinite;
+}
+
+.footer-section p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.footer-section .text-danger {
+    color: #ef4444 !important;
+    font-weight: 700;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN - Diseño Responsivo
+   =============================================== */
+
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: auto;
+    }
+
+    .left-section,
+    .right-section {
+        padding: 30px 20px;
+    }
+
+    .left-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .social-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .left-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .bio-text {
+        font-size: 1rem;
+    }
+
+    .image-container {
+        max-width: 300px;
+    }
+
+    .button {
+        padding: 0.8rem 1.5rem;
+    }
+
+    .button .sparkle {
+        width: 1.5rem;
+    }
+
+    .button .text_button {
+        font-size: 0.9rem;
+    }
+
+    .social-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 400px;
+    }
+
+    .about-section h2,
+    .certifications-section h2 {
+        font-size: 2rem;
+    }
+
+    .section-title-about {
+        font-size: 2rem;
+    }
+
+    .about-name {
+        font-size: 1.6rem;
+    }
+
+    .about-role {
+        font-size: 0.95rem;
+    }
+
+    .about-text {
+        font-size: 0.9rem;
+    }
+
+    .img-profile-square {
+        max-width: 280px;
+        margin: 20px auto;
+    }
+
+    .certifications-section {
+        padding: 60px 0;
+    }
+
+    .certifications-section .section-title {
+        font-size: 2rem;
+    }
+
+    .cert-card-pro {
+        padding: 30px 20px;
+    }
+
+    .cert-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .cert-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .projects-section {
+        padding: 60px 0;
+    }
+
+    .projects-section .section-title {
+        font-size: 2rem;
+    }
+
     .contact-section-pro {
         padding: 60px 0;
     }
@@ -1728,66 +1708,69 @@ body {
         font-size: 1.2rem;
     }
 }
-.footer-section {
-    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
-    color: #f3f4f6;
-    padding: 40px 0;
-    border-top: 3px solid linear-gradient(135deg, #00d4ff, #ff6b35);
-    position: relative;
-}
-
-.footer-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #3b82f6, #f59e0b, #10b981, #3b82f6);
-    background-size: 300% 100%;
-    animation: gradientSlide 3s ease infinite;
-}
-
-@keyframes gradientSlide {
-    0% {
-        background-position: 0% center;
-    }
-    50% {
-        background-position: 100% center;
-    }
-    100% {
-        background-position: 0% center;
-    }
-}
-
-.footer-section p {
-    margin: 0;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.footer-section .text-danger {
-    color: #ef4444 !important;
-    font-weight: 700;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 @media (max-width: 576px) {
+    .hero-section .container-fluid {
+        padding: 0;
+    }
+
+    .left-section,
+    .right-section {
+        padding: 20px 15px;
+    }
+
+    .left-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .bio-text {
+        font-size: 0.95rem;
+    }
+
+    .image-container {
+        max-width: 250px;
+    }
+
+    .button {
+        padding: 0.7rem 1.2rem;
+    }
+
+    .button .sparkle {
+        width: 1.3rem;
+    }
+
+    .button .text_button {
+        font-size: 0.85rem;
+    }
+
+    .social-cards-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        max-width: 300px;
+    }
+
+    .social-card h3 {
+        font-size: 14px;
+    }
+
+    .social-card svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .about-section h2,
+    .certifications-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-section p {
+        font-size: 0.95rem;
+    }
+
+    .logos img {
+        max-height: 80px;
+    }
+
     .projects-section {
         padding: 40px 0;
     }
@@ -1813,5 +1796,4 @@ html {
     .contact-card {
         padding: 25px 15px;
     }
-
 }
